@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio práctico</title>
+</head>
+<body>
+    <h1>VUELOS</h1>
+
+    <form action="/crear" method="POST">
+
+      <input type="text" name="origen" placeholder="Origen del vuelo">
+      <input type="text " name="destino" placeholder="Destino">
+      <input type="text" name="duracion" placeholder="Duracion del vuelo">
+      <button type="submit">
+        Guardar
+      </button>
+  </form>
+    
+{% block content %}
+
+<main>
+    <div class="table-title">
+        <h1>Tus registros</h1>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>ORIGEN</th>
+                    <th>DESTINO</th>
+                    <th>DURACION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for  flight in flights %}
+                <tr>
+                    <td>{{ flight.id }}</td>
+                    <td>{{ flight.origin }}</td>
+                    <td>{{ flight.destination }}</td>
+                    <td>{{ flight.duration}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+
+{% endblock %}
+    
+    
+</body>
+</html>
